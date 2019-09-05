@@ -1,0 +1,38 @@
+{%extends "base.html" %}
+{% block mainbody %}
+
+从模板中变量使用了双括号。
+<h1>{{ hello }}</h1>
+
+{% if name == "徐国忠" and age == 18 %}
+    <h2>徐国忠</h2>
+{% else %}
+    <h2>Frank</h2>
+{% endif %}
+
+{# 这是一个模板过滤器的注释 #}
+<h1>{{ eng }}</h1>
+<h1>{{ eng|lower }}</h1>
+<h1>{{ eng|first|upper }}</h1>
+<h1>{{ eng|truncatewords:"1" }}</h1>
+
+{% ifequal  name "徐国忠2"%}
+    <h2>徐国忠</h2>
+{% else %}
+    <h2>Frank</h2>
+{% endifequal %}
+
+<ul>
+{% for d in data %}
+    <li>{{ d }}</li>
+{% endfor %}
+</ul>
+
+------------------------------
+<ul>
+{% for j in json %}
+    <li>{{ j.name }} - {{ j.age }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
